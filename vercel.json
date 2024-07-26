@@ -2,7 +2,7 @@
     "version": 2,
     "headers": [
         {
-            "source": "/api/(.*)",
+            "source": "/(.*)",
             "headers": [
                 { "key": "Access-Control-Allow-Credentials", "value": "true" },
                 { "key": "Access-Control-Allow-Origin", "value": "*" },
@@ -21,7 +21,7 @@
     "routes": [
      {
       "src": "/(.*)",
-      "dest": "app.js"
+      "dest": "index.js"
      }
     ]
    }
