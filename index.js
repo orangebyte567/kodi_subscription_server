@@ -2,6 +2,7 @@ const express = require('express');
 const mongoose = require('mongoose');
 const dotenv = require('dotenv');
 const cors = require('cors');
+var bodyParser = require('body-parser');
 const userRoutes = require('./routes/userRoutes');
 const subscriptionRoutes = require('./routes/subscriptionRoutes');
 const paymentRoutes = require('./routes/paymentRoutes');
@@ -11,7 +12,9 @@ dotenv.config();
 
 const app = express();
 app.use(cors());
-app.use(express.json());
+// app.use(express.json());
+app.use(bodyParser.json()); 
+app.use(bodyParser.urlencoded({ extended: true })); 
 
 mongoose.connect(process.env.MONGO_URI, {}).then(() => console.log('MongoDB connected'))
   .catch(err => console.error(err));
